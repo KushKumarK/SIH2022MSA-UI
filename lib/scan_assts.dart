@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Scanner extends StatelessWidget {
-  const Scanner({Key? key}) : super(key: key);
+class LandScanner extends StatelessWidget {
+  const LandScanner({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("SCANNER"),
+        title: Text("3D-LAND SCANNER"),
       ),
       body: Center(
         child: ElevatedButton(

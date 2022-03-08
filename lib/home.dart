@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'scan_appl.dart';
+import 'scan_assts.dart';
+import 'result_pg.dart';
+
+// ignore: non_constant_identifier_names
+var Pages = [Scanner(), LandScanner(), SeeResult()];
 
 List<String> Classes = [
   "Scan Your MGNREGS Application",
@@ -62,7 +68,15 @@ class _HomeState extends State<Home> {
                   SizedBox(
                     height: 8.0,
                   ),
-                  Box(index),
+                  GestureDetector(
+                    child: Box(index),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Pages[index]));
+                    },
+                  ),
                   SizedBox(
                     height: 8.0,
                   )

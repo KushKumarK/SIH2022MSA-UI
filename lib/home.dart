@@ -10,7 +10,7 @@ var camera;
 
 // ignore: non_constant_identifier_names
 // ignore: non_constant_identifier_names
-var Pages = [Scanner(), LandScanner(), SeeResult()];
+var Pages = [Scanner(title: "Hello"), LandScanner(), SeeResult()];
 
 List<String> Classes = [
   "Scan Your MGNREGS Application",

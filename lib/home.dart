@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 import 'scan_appl.dart';
 import 'scan_assts.dart';
 import 'result_pg.dart';
+import 'package:camera/camera.dart';
 
+var camera;
+
+// ignore: non_constant_identifier_names
+
+// ignore: non_constant_identifier_names
 // ignore: non_constant_identifier_names
 var Pages = [Scanner(), LandScanner(), SeeResult()];
 
@@ -71,10 +77,8 @@ class _HomeState extends State<Home> {
                   GestureDetector(
                     child: Box(index),
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Pages[index]));
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => Pages[index]));
                     },
                   ),
                   SizedBox(

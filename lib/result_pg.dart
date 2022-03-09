@@ -20,3 +20,9 @@ class SeeResult extends StatelessWidget {
     );
   }
 }
+
+class Results {
+  var ocr_result;
+  var obj_file;
+  var land_file_path;
+}

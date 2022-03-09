@@ -3,20 +3,32 @@ import 'scan_appl.dart';
 import 'scan_assts.dart';
 import 'result_pg.dart';
 
-var camera;
-
 // ignore: non_constant_identifier_names
 
 // ignore: non_constant_identifier_names
 // ignore: non_constant_identifier_names
-var Pages = [Scanner(title: "Hello"), LandScanner(), SeeResult()];
+var Pages = [
+  Scanner(
+    title: "Application First Page Scan",
+    file_name: "page_1.json",
+  ),
+  Scanner(
+    title: "Second page Scan",
+    file_name: "page_2.json",
+  ),
+  LandScanner(),
+  SeeResult()
+];
 
+// ignore: non_constant_identifier_names
 List<String> Classes = [
-  "Scan Your MGNREGS Application",
+  "Scan First Page MGNREGS Application",
+  "Scan Second Page of MGNREGS Application",
   "Scan Land Assets",
   "See Results Stored"
 ];
 double? width;
+// ignore: non_constant_identifier_names
 Widget Box(index) {
   return Material(
       elevation: 10.0,
@@ -51,26 +63,37 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          const SliverAppBar(
+          SliverAppBar(
             shape: ContinuousRectangleBorder(
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(30),
                     bottomRight: Radius.circular(30))),
             expandedHeight: 250.0,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text(
-                "Home",
-                textScaleFactor: 1,
-              ),
-              centerTitle: true,
-            ),
+                title: Text(
+                  "MGNREGA SMART APP",
+                  textScaleFactor: 1,
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
+                ),
+                centerTitle: true,
+                background: ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(10),
+                    bottomRight: Radius.circular(10),
+                  ),
+                  child: Image.network(
+                    "https://mgnregs.ap.gov.in/Nregs/_images/about.jpg",
+                    fit: BoxFit.cover,
+                  ),
+                )),
           ),
           SliverList(
               delegate: SliverChildBuilderDelegate(
             (_, int index) {
               return Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 8.0,
                   ),
                   GestureDetector(
@@ -80,13 +103,13 @@ class _HomeState extends State<Home> {
                           builder: (context) => Pages[index]));
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8.0,
                   )
                 ],
               );
             },
-            childCount: 3,
+            childCount: Classes.length,
           ))
         ],
       ),

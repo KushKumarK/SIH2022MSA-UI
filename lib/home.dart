@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'scan_appl.dart';
 import 'scan_assts.dart';
 import 'result_pg.dart';
-import 'package:camera/camera.dart';
 
 var camera;
 
